@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import moodboardImage from "../assets/moodboard.png";
+import Image from "astro/components/Image.astro";
 ---
 
 <Layout title="Oferta — Cyan Chroma">
@@ -15,12 +16,13 @@ import moodboardImage from "../assets/moodboard.png";
         </div>
         <div class="hero-media">
             <div class="media-frame">
-                <img
-                    src={moodboardImage.src}
+                <Image
+                    src={moodboardImage}
                     width={moodboardImage.width}
                     height={moodboardImage.height}
                     alt="Przykladowy moodboard projektu wnetrz"
-                    decoding="async"
+                    loading="eager"
+                    fetchpriority="high"
                 />
             </div>
         </div>
