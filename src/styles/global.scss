@@ -91,8 +91,8 @@ footer {
 
 .full-bleed {
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .hero-carousel {
@@ -419,6 +419,68 @@ p {
   aspect-ratio: 3 / 2;
 }
 
+.portfolio-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(18px, 3vw, 28px);
+  border-radius: var(--radius-md);
+  min-height: 260px;
+  aspect-ratio: 4 / 3;
+  color: #fff;
+  text-decoration: none;
+  background-image: var(--card-bg, radial-gradient(120% 90% at 12% 8%, rgba(255, 255, 255, 0.2), transparent 60%), linear-gradient(135deg, rgba(141, 108, 88, 0.5), rgba(70, 56, 46, 0.9)));
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 16, 12, 0.15) 0%, rgba(20, 16, 12, 0.65) 70%);
+}
+
+.portfolio-card__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  max-width: 32rem;
+}
+
+.portfolio-card h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.portfolio-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.portfolio-card .tag-list {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio-card .tag-list li {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(20, 16, 12, 0.28);
+  color: #fff;
+}
+
+.portfolio-card:hover,
+.portfolio-card:focus-visible {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(18, 14, 10, 0.2);
+  border: 1px var(--color-accent-strong) solid;
+}
+
 .media-button {
   display: block;
   width: 100%;
@@ -572,6 +634,11 @@ p {
   align-items: start;
 }
 
+.section-grid.portfolio-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 32px);
+}
+
 .card {
   padding: clamp(22px, 3vw, 30px);
   border-radius: var(--radius-md);
@@ -598,6 +665,16 @@ p {
 
 .card h3 {
   margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .section-grid.portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card {
+    //aspect-ratio: 16 / 10;
+  }
 }
 
 .card p {

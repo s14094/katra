@@ -37,84 +37,73 @@ const base = import.meta.env.BASE_URL;
                 <h2>Mieszkania, domy i wnętrza komercyjne</h2>
             </div>
         </div>
-        <div class="section-grid">
-            <a class="card card-link" href={`${base}portfolio/apartament-mokotow/`}>
-                <div class="media-frame small">
-                    <Image
-                        src={mokotow1}
-                        width={mokotow1.width}
-                        height={mokotow1.height}
-                        alt="Apartament Mokotow - strefa dzienna"
-                        loading="lazy"
-                    />
+
+        <div class="section-grid portfolio-grid">
+            <a class="portfolio-card" href={`${base}portfolio/apartament-mokotow/`} style={`--card-bg: url('${mokotow1.src}')`}>
+                <div class="portfolio-card__content">
+                    <h3>Apartament Mokotow</h3>
+                    <p>130 m2, miekka paleta bezow, otwarta strefa dzienna.</p>
+                    <ul class="tag-list">
+                        <li>mieszkanie</li>
+                        <li>2024</li>
+                        <li>Warszawa</li>
+                    </ul>
                 </div>
-                <h3>Apartament Mokotów</h3>
-                <p>130 m², miękka paleta beżów, otwarta strefa dzienna.</p>
-                <ul class="tag-list">
-                    <li>mieszkanie</li>
-                    <li>2024</li>
-                    <li>Warszawa</li>
-                </ul>
             </a>
-            <article class="card">
-                <div class="media-placeholder small">
-                    <p>Dom pod lasem</p>
+            <article class="portfolio-card">
+                <div class="portfolio-card__content">
+                    <h3>Dom pod lasem</h3>
+                    <p>200 m2, naturalne drewno i tynki gliniane.</p>
+                    <ul class="tag-list">
+                        <li>dom</li>
+                        <li>2023</li>
+                        <li>Konstancin</li>
+                    </ul>
                 </div>
-                <h3>Dom pod lasem</h3>
-                <p>200 m², naturalne drewno i tynki gliniane.</p>
-                <ul class="tag-list">
-                    <li>dom</li>
-                    <li>2023</li>
-                    <li>Konstancin</li>
-                </ul>
             </article>
-            <article class="card">
-                <div class="media-placeholder small">
-                    <p>Studio beauty</p>
+            <article class="portfolio-card">
+                <div class="portfolio-card__content">
+                    <h3>Studio beauty</h3>
+                    <p>Kontrastowa recepcja, strefy pracy i relaksu.</p>
+                    <ul class="tag-list">
+                        <li>komercyjne</li>
+                        <li>2023</li>
+                        <li>Lodz</li>
+                    </ul>
                 </div>
-                <h3>Studio beauty</h3>
-                <p>Kontrastowa recepcja, strefy pracy i relaksu.</p>
-                <ul class="tag-list">
-                    <li>komercyjne</li>
-                    <li>2023</li>
-                    <li>Łódź</li>
-                </ul>
             </article>
-            <article class="card">
-                <div class="media-placeholder small">
-                    <p>Loft Praga</p>
+            <article class="portfolio-card">
+                <div class="portfolio-card__content">
+                    <h3>Loft Praga</h3>
+                    <p>Surowe materialy przelamane miekkimi tekstyliami.</p>
+                    <ul class="tag-list">
+                        <li>mieszkanie</li>
+                        <li>2022</li>
+                        <li>Warszawa</li>
+                    </ul>
                 </div>
-                <h3>Loft Praga</h3>
-                <p>Surowe materiały przełamane miękkimi tekstyliami.</p>
-                <ul class="tag-list">
-                    <li>mieszkanie</li>
-                    <li>2022</li>
-                    <li>Warszawa</li>
-                </ul>
             </article>
-            <article class="card">
-                <div class="media-placeholder small">
-                    <p>Biuro kreatywne</p>
+            <article class="portfolio-card">
+                <div class="portfolio-card__content">
+                    <h3>Biuro kreatywne</h3>
+                    <p>Strefy skupienia, otwarte miejsca spotkan.</p>
+                    <ul class="tag-list">
+                        <li>komercyjne</li>
+                        <li>2022</li>
+                        <li>Poznan</li>
+                    </ul>
                 </div>
-                <h3>Biuro kreatywne</h3>
-                <p>Strefy skupienia, otwarte miejsca spotkań.</p>
-                <ul class="tag-list">
-                    <li>komercyjne</li>
-                    <li>2022</li>
-                    <li>Poznań</li>
-                </ul>
             </article>
-            <article class="card">
-                <div class="media-placeholder small">
-                    <p>Kamienica Śródmieście</p>
+            <article class="portfolio-card">
+                <div class="portfolio-card__content">
+                    <h3>Kamienica Srodmiescie</h3>
+                    <p>Odtworzone detale sztukatorskie i nowa funkcja.</p>
+                    <ul class="tag-list">
+                        <li>mieszkanie</li>
+                        <li>2021</li>
+                        <li>Warszawa</li>
+                    </ul>
                 </div>
-                <h3>Kamienica Śródmieście</h3>
-                <p>Odtworzone detale sztukatorskie i nowa funkcja.</p>
-                <ul class="tag-list">
-                    <li>mieszkanie</li>
-                    <li>2021</li>
-                    <li>Warszawa</li>
-                </ul>
             </article>
         </div>
     </section>
