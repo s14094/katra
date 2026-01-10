@@ -1,62 +1,62 @@
 ---
 import "../styles/global.scss";
-
-const { title = "Cyan Chroma ? Studio wn?trz" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<header>
-			<nav>
-				<a href="/">Home</a>
-				<a href="/about">O mnie</a>
-				<a href="/portfolio">Portfolio</a>
-				<a href="/offer">Oferta</a>
-				<a href="/contact">Kontakt</a>
-			</nav>
-		</header>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>{title}</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href={`${base}`}>Home</a>
+        <a href={`${base}about/`}>O mnie</a>
+        <a href={`${base}portfolio/`}>Portfolio</a>
+        <a href={`${base}offer/`}>Oferta</a>
+        <a href={`${base}contact/`}>Kontakt</a>
+    </nav>
+</header>
 
-		<main>
-			<slot />
-		</main>
+<main>
+    <slot/>
+</main>
 
-		<footer>
-			<div class="footer-grid">
-				<div>
-					<p class="footer-title">Cyan Chroma</p>
-					<p>Studio projektowania wn?trz skupione na ?wietle, fakturze i spokoju.</p>
-				</div>
-				<div>
-					<p class="footer-heading">Kontakt</p>
-					<p>hello@cyan-chroma.com</p>
-					<p>+48 600 000 000</p>
-				</div>
-				<div>
-					<p class="footer-heading">Oferta</p>
-					<ul class="footer-links">
-						<li><a href="/offer">Pakiety projektowe</a></li>
-						<li><a href="/portfolio">Portfolio</a></li>
-						<li><a href="/contact">Konsultacje</a></li>
-					</ul>
-				</div>
-				<div>
-					<p class="footer-heading">Social</p>
-					<ul class="footer-links">
-						<li><a href="#">Instagram</a></li>
-						<li><a href="#">Pinterest</a></li>
-						<li><a href="#">Behance</a></li>
-					</ul>
-				</div>
-			</div>
-			<p class="footer-meta">? 2026 Cyan Chroma. Wszystkie prawa zastrze?one.</p>
-		</footer>
-	</body>
+<footer>
+    <div class="footer-grid">
+        <div>
+            <p class="footer-title">Cyan Chroma</p>
+            <p>Studio projektowania wn?trz skupione na ?wietle, fakturze i spokoju.</p>
+        </div>
+        <div>
+            <p class="footer-heading">Kontakt</p>
+            <p>hello@cyan-chroma.com</p>
+            <p>+48 600 000 000</p>
+        </div>
+        <div>
+            <p class="footer-heading">Oferta</p>
+            <ul class="footer-links">
+                <li><a href="/offer">Pakiety projektowe</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact">Konsultacje</a></li>
+            </ul>
+        </div>
+        <div>
+            <p class="footer-heading">Social</p>
+            <ul class="footer-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">Behance</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="footer-meta">? 2026 Cyan Chroma. Wszystkie prawa zastrze?one.</p>
+</footer>
+</body>
 </html>
