@@ -478,7 +478,7 @@ p {
 .portfolio-card:hover,
 .portfolio-card:focus-visible {
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-2px) !important;
   box-shadow: 0 22px 40px rgba(18, 14, 10, 0.2);
   border: 1px var(--color-accent-strong) solid;
 }
