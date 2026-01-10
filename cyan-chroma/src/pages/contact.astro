@@ -1,6 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Portfolio">
-    <h1>Realizacje</h1>
+
+<Layout title="Kontakt — Cyan Chroma">
+	<section class="hero">
+		<div class="hero-content">
+			<p class="eyebrow">Kontakt</p>
+			<h1>Porozmawiajmy o Twojej przestrzeni.</h1>
+			<p class="lead">
+				Napisz, jakiej zmiany potrzebujesz. Wrócę z informacją o dostępności,
+				wstępnym harmonogramie i sugerowanym zakresie współpracy.
+			</p>
+			<div class="contact-details">
+				<p><strong>Email</strong> hello@cyan-chroma.com</p>
+				<p><strong>Telefon</strong> +48 600 000 000</p>
+				<p><strong>Lokalizacja</strong> Warszawa / praca zdalna</p>
+			</div>
+		</div>
+		<div class="hero-media">
+			<div class="media-placeholder">
+				<p>Zdjęcie pracowni</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="section-header">
+			<div>
+				<p class="eyebrow">Formularz</p>
+				<h2>Krótki brief</h2>
+			</div>
+		</div>
+		<form class="card form" action="#" method="post">
+			<div class="form-grid">
+				<label class="form-field">
+					<span>Imię i nazwisko</span>
+					<input type="text" name="name" placeholder="Jan Kowalski" required />
+				</label>
+				<label class="form-field">
+					<span>Email</span>
+					<input type="email" name="email" placeholder="jan@email.com" required />
+				</label>
+				<label class="form-field">
+					<span>Rodzaj projektu</span>
+					<input type="text" name="type" placeholder="Mieszkanie 80 m²" />
+				</label>
+				<label class="form-field">
+					<span>Planowany termin</span>
+					<input type="text" name="timeline" placeholder="Start w marcu" />
+				</label>
+				<label class="form-field full">
+					<span>Opisz krótko potrzeby</span>
+					<textarea name="message" rows="5" placeholder="Najważniejsze wyzwania i oczekiwania"></textarea>
+				</label>
+			</div>
+			<button class="button" type="submit">Wyślij zapytanie</button>
+			<p class="form-note">Docelowo formularz może zostać podłączony do Formspree.</p>
+		</form>
+	</section>
 </Layout>
