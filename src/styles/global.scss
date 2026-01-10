@@ -6,7 +6,7 @@
   --font-display: "Cormorant Garamond", "Palatino Linotype", "Book Antiqua", serif;
   --color-ink: #1f1b18;
   --color-muted: #5f5550;
-  --color-accent: #b05a3d;
+  --color-accent: #403126;
   --color-accent-strong: #94412c;
   --color-surface: #f6efe8;
   --color-surface-2: #ffffff;
@@ -189,8 +189,8 @@ footer {
   max-width: var(--page-max);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
-  padding-top: 28px;
-  padding-bottom: 12px;
+  padding-top: 22px;
+  padding-bottom: 6px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -205,7 +205,7 @@ footer {
 }
 
 .site-brand img {
-  height: 44px;
+  height: 56px;
   width: auto;
 }
 
@@ -592,6 +592,18 @@ textarea {
   margin: 0;
   display: grid;
   gap: 8px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-link svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent);
 }
 
 .footer-meta {

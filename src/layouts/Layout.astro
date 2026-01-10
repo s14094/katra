@@ -1,8 +1,9 @@
 ---
 import "../styles/global.scss";
-import logoImage from "../assets/logo.jpeg";
+import logoImage from "../assets/logo.png";
+import Image from "astro/components/Image.astro";
 const base = import.meta.env.BASE_URL;
-const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
+const {title = "xd"} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,13 +18,14 @@ const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
 <body>
 <header class="site-header">
     <div class="header-inner">
-        <a class="site-brand" href={`${base}`} aria-label="Cyan Chroma - strona glowna">
-            <img
-                src={logoImage.src}
+        <a class="site-brand" href={`${base}`} aria-label="strona glowna">
+            <Image
+                src={logoImage}
                 width={logoImage.width}
                 height={logoImage.height}
-                alt="Cyan Chroma logo"
-                decoding="async"
+                alt="logo"
+                loading="eager"
+                fetchpriority="high"
             />
         </a>
         <nav>
@@ -43,7 +45,7 @@ const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
 <footer>
     <div class="footer-grid">
         <div>
-            <p class="footer-title">K.Radomska</p>
+            <p class="footer-title">K.RADOMSKA</p>
             <p>Studio projektowania wn?trz skupione na ?wietle, fakturze i spokoju.</p>
         </div>
         <div>
@@ -62,9 +64,17 @@ const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
         <div>
             <p class="footer-heading">Social</p>
             <ul class="footer-links">
-                <li><a href="https://www.instagram.com/k.radomska_interiors/">Instagram</a></li>
-                <li><a href="https://pinterest.com/">Pinterest</a></li>
-                <li><a href="https://www.behance.net/">Behance</a></li>
+                <li>
+                    <a class="social-link" href="https://www.instagram.com/k.radomska_interiors/">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                            <path
+                                d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6zm0 2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6zm5.1-.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                        Instagram
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
