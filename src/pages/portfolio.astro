@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import kolazImage from "../assets/kolaz.png";
+import mokotow1 from "../assets/mokotow/1.jpeg";
 import Image from "astro/components/Image.astro";
 ---
 
@@ -37,8 +38,14 @@ import Image from "astro/components/Image.astro";
         </div>
         <div class="section-grid">
             <a class="card card-link" href="/portfolio/apartament-mokotow/">
-                <div class="media-placeholder small">
-                    <p>Apartament Mokotów</p>
+                <div class="media-frame small">
+                    <Image
+                        src={mokotow1}
+                        width={mokotow1.width}
+                        height={mokotow1.height}
+                        alt="Apartament Mokotow - strefa dzienna"
+                        loading="lazy"
+                    />
                 </div>
                 <h3>Apartament Mokotów</h3>
                 <p>130 m², miękka paleta beżów, otwarta strefa dzienna.</p>

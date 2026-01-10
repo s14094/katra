@@ -411,8 +411,121 @@ p {
   display: block;
 }
 
+.media-frame.small {
+  aspect-ratio: 3 / 2;
+}
+
+.media-button {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: none;
+  text-decoration: none;
+  color: inherit;
+  cursor: zoom-in;
+  text-align: left;
+}
+
 .media-placeholder.small {
   min-height: 180px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(20, 16, 12, 0.78);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-scrim {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-out;
+}
+
+.lightbox-content {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: min(92vw, 1100px);
+  max-height: 86vh;
+  width: 100%;
+  z-index: 1;
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-ink);
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  line-height: 1;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+}
+
+.lightbox-arrow.prev {
+  left: clamp(8px, 2vw, 20px);
+}
+
+.lightbox-arrow.next {
+  right: clamp(8px, 2vw, 20px);
+}
+
+.lightbox-arrow:hover,
+.lightbox-arrow:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+.lightbox-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-ink);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  color: var(--color-accent-strong);
 }
 
 .section {

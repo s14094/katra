@@ -1,5 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import mokotow1 from "../../assets/mokotow/1.jpeg";
+import mokotow2 from "../../assets/mokotow/2.jpeg";
+import mokotow3 from "../../assets/mokotow/3.jpeg";
+import mokotow4 from "../../assets/mokotow/4.jpeg";
 ---
 
 <Layout title="Apartament Mokotow — Cyan Chroma">
@@ -32,9 +37,16 @@ import Layout from "../../layouts/Layout.astro";
             </div>
         </div>
         <div class="hero-media">
-            <div class="media-placeholder">
-                <p>Zdjecie glowne apartamentu</p>
-            </div>
+            <button class="media-frame media-button" type="button" data-hero-lightbox aria-label="Powieksz zdjecie apartamentu">
+                <Image
+                    src={mokotow1}
+                    width={mokotow1.width}
+                    height={mokotow1.height}
+                    alt="Apartament Mokotow - strefa dzienna"
+                    loading="eager"
+                    fetchpriority="high"
+                />
+            </button>
         </div>
     </section>
 
@@ -76,7 +88,8 @@ import Layout from "../../layouts/Layout.astro";
         </div>
     </section>
 
-    <section class="section">
+
+    <section class="section" id="mokotow-gallery">
         <div class="section-header">
             <div>
                 <p class="eyebrow">Kadry</p>
@@ -84,15 +97,136 @@ import Layout from "../../layouts/Layout.astro";
             </div>
         </div>
         <div class="section-grid">
-            <div class="media-placeholder small">
-                <p>Strefa dzienna</p>
-            </div>
-            <div class="media-placeholder small">
-                <p>Kuchnia</p>
-            </div>
-            <div class="media-placeholder small">
-                <p>Sypialnia</p>
-            </div>
+            <button
+                class="media-frame small media-button"
+                type="button"
+                data-gallery-item
+                data-full={mokotow1.src}
+                data-alt="Apartament Mokotow - strefa dzienna"
+            >
+                <Image
+                    src={mokotow1}
+                    width={mokotow1.width}
+                    height={mokotow1.height}
+                    alt="Apartament Mokotow - strefa dzienna"
+                    loading="lazy"
+                />
+            </button>
+            <button
+                class="media-frame small media-button"
+                type="button"
+                data-gallery-item
+                data-full={mokotow2.src}
+                data-alt="Apartament Mokotow - salon"
+            >
+                <Image
+                    src={mokotow2}
+                    width={mokotow2.width}
+                    height={mokotow2.height}
+                    alt="Apartament Mokotow - salon"
+                    loading="lazy"
+                />
+            </button>
+            <button
+                class="media-frame small media-button"
+                type="button"
+                data-gallery-item
+                data-full={mokotow3.src}
+                data-alt="Apartament Mokotow - kuchnia"
+            >
+                <Image
+                    src={mokotow3}
+                    width={mokotow3.width}
+                    height={mokotow3.height}
+                    alt="Apartament Mokotow - kuchnia"
+                    loading="lazy"
+                />
+            </button>
+            <button
+                class="media-frame small media-button"
+                type="button"
+                data-gallery-item
+                data-full={mokotow4.src}
+                data-alt="Apartament Mokotow - sypialnia"
+            >
+                <Image
+                    src={mokotow4}
+                    width={mokotow4.width}
+                    height={mokotow4.height}
+                    alt="Apartament Mokotow - sypialnia"
+                    loading="lazy"
+                />
+            </button>
         </div>
     </section>
+
+    <div class="lightbox js-lightbox" aria-hidden="true">
+        <div class="lightbox-scrim" data-lightbox-close></div>
+        <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Podglad zdjecia">
+            <button class="lightbox-close" type="button" data-lightbox-close aria-label="Zamknij">&times;</button>
+            <button class="lightbox-arrow prev" type="button" data-lightbox-prev aria-label="Poprzednie zdjecie">&#x2039;</button>
+            <img class="lightbox-image" src="" alt="" />
+            <button class="lightbox-arrow next" type="button" data-lightbox-next aria-label="Nastepne zdjecie">&#x203A;</button>
+        </div>
+    </div>
+
+    <script type="module">
+        const galleryItems = Array.from(document.querySelectorAll("[data-gallery-item]"));
+        const lightbox = document.querySelector(".js-lightbox");
+        const lightboxImage = document.querySelector(".lightbox-image");
+        const closeButtons = document.querySelectorAll("[data-lightbox-close]");
+        const prevButton = document.querySelector("[data-lightbox-prev]");
+        const nextButton = document.querySelector("[data-lightbox-next]");
+        const heroOpen = document.querySelector("[data-hero-lightbox]");
+
+        if (galleryItems.length && lightbox && lightboxImage) {
+            let currentIndex = 0;
+
+            const setImage = (index) => {
+                const item = galleryItems[index];
+                if (!item) return;
+                currentIndex = index;
+                lightboxImage.src = item.dataset.full || "";
+                lightboxImage.alt = item.dataset.alt || "";
+            };
+
+            const openLightbox = (index) => {
+                setImage(index);
+                lightbox.classList.add("is-open");
+                lightbox.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            };
+
+            const closeLightbox = () => {
+                lightbox.classList.remove("is-open");
+                lightbox.setAttribute("aria-hidden", "true");
+                document.body.style.overflow = "";
+            };
+
+            const goTo = (direction) => {
+                const nextIndex = (currentIndex + direction + galleryItems.length) % galleryItems.length;
+                setImage(nextIndex);
+            };
+
+            galleryItems.forEach((item, index) => {
+                item.addEventListener("click", () => openLightbox(index));
+            });
+
+            heroOpen?.addEventListener("click", () => openLightbox(0));
+
+            closeButtons.forEach((button) => {
+                button.addEventListener("click", closeLightbox);
+            });
+
+            prevButton?.addEventListener("click", () => goTo(-1));
+            nextButton?.addEventListener("click", () => goTo(1));
+
+            document.addEventListener("keydown", (event) => {
+                if (!lightbox.classList.contains("is-open")) return;
+                if (event.key === "Escape") closeLightbox();
+                if (event.key === "ArrowLeft") goTo(-1);
+                if (event.key === "ArrowRight") goTo(1);
+            });
+        }
+    </script>
 </Layout>
