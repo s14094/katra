@@ -1,8 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
+const isProd = process.env.NODE_ENV === 'production';
+
 export default defineConfig({
-    site: 'https://s14094.github.io',
-    base: '/katra/',
+    site: isProd ? 'https://s14094.github.io' : 'http://localhost:4321',
+    base: isProd ? '/katra/' : '/',
 });
