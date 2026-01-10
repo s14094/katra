@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import wizualizacjaImage from "../assets/wizualizacja.png";
 ---
 
 <Layout title="Studio wnętrz — Cyan Chroma">
@@ -32,8 +33,14 @@ import Layout from "../layouts/Layout.astro";
             </dl>
         </div>
         <div class="hero-media">
-            <div class="media-placeholder">
-                <p>Hero image / wizualizacja wnętrza</p>
+            <div class="media-frame">
+                <img
+                    src={wizualizacjaImage.src}
+                    width={wizualizacjaImage.width}
+                    height={wizualizacjaImage.height}
+                    alt="Wizualizacja wnetrza"
+                    decoding="async"
+                />
             </div>
         </div>
     </section>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import kolazImage from "../assets/kolaz.png";
 ---
 
 <Layout title="Portfolio — Cyan Chroma">
@@ -13,8 +14,14 @@ import Layout from "../layouts/Layout.astro";
             </p>
         </div>
         <div class="hero-media">
-            <div class="media-placeholder">
-                <p>Galeria / kolaż projektów</p>
+            <div class="media-frame">
+                <img
+                    src={kolazImage.src}
+                    width={kolazImage.width}
+                    height={kolazImage.height}
+                    alt="Kolaz projektow wnetrz"
+                    decoding="async"
+                />
             </div>
         </div>
     </section>
