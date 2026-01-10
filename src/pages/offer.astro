@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import moodboardImage from "../assets/moodboard.png";
 import Image from "astro/components/Image.astro";
+import "aos/dist/aos.css";
 ---
 
 <Layout title="Oferta — K.RADOMSKA">
@@ -28,7 +29,7 @@ import Image from "astro/components/Image.astro";
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
         <div class="section-header">
             <div>
                 <p class="eyebrow">Pakiety</p>
@@ -66,7 +67,7 @@ import Image from "astro/components/Image.astro";
         </div>
     </section>
 
-    <section class="section section-alt">
+    <section class="section section-alt" data-aos="fade-up">
         <div class="section-header">
             <div>
                 <p class="eyebrow">Dodatkowo</p>

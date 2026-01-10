@@ -5,8 +5,10 @@ import carousel1 from "../assets/carousel1.jpeg";
 import carousel2 from "../assets/carousel2.jpeg";
 import carousel3 from "../assets/carousel3.jpeg";
 import carousel4 from "../assets/carousel4.jpeg";
+import mokotow1 from "../assets/mokotow/1.jpeg";
 import Image from "astro/components/Image.astro";
 import "aos/dist/aos.css";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="K.RADOMSKA">
@@ -78,8 +80,8 @@ import "aos/dist/aos.css";
                 życia.
             </p>
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="150">
-                <a class="button" href="/portfolio">Zobacz realizacje</a>
-                <a class="button secondary" href="/contact">Umów konsultację</a>
+                <a class="button" href={`${base}portfolio/`}>Zobacz realizacje</a>
+                <a class="button secondary" href={`${base}contact/`}>Umów konsultację</a>
             </div>
             <dl class="stats" data-aos="fade-up" data-aos-delay="250">
                 <div>
@@ -116,7 +118,7 @@ import "aos/dist/aos.css";
                 <p class="eyebrow">Specjalizacje</p>
                 <h2>Projektowanie z myślą o codziennym komforcie</h2>
             </div>
-            <a class="text-link" href="/offer">Pełna oferta</a>
+            <a class="text-link" href={`${base}offer/`}>Pełna oferta</a>
         </div>
         <div class="section-grid">
             <article class="card" data-aos="fade-up" data-aos-delay="100">
@@ -182,16 +184,22 @@ import "aos/dist/aos.css";
                 <p class="eyebrow">Portfolio</p>
                 <h2>Wybrane realizacje</h2>
             </div>
-            <a class="text-link" href="/portfolio">Zobacz więcej</a>
+            <a class="text-link" href={`${base}portfolio/`}>Zobacz więcej</a>
         </div>
         <div class="section-grid">
-            <article class="card" data-aos="fade-up" data-aos-delay="400">
-                <div class="media-placeholder small">
-                    <p>Apartament Mokotów</p>
+            <a class="card card-link" href={`${base}portfolio/apartament-mokotow/`} data-aos="fade-up" data-aos-delay="400">
+                <div class="media-frame small">
+                    <Image
+                        src={mokotow1}
+                        width={mokotow1.width}
+                        height={mokotow1.height}
+                        alt="Apartament Mokotow - strefa dzienna"
+                        loading="lazy"
+                    />
                 </div>
                 <h3>Apartament Mokotów</h3>
                 <p>130 m², stonowane beże, wyraźna oś światła dziennego.</p>
-            </article>
+            </a>
             <article class="card" data-aos="fade-up" data-aos-delay="500">
                 <div class="media-placeholder small">
                     <p>Dom pod lasem</p>
@@ -267,7 +275,7 @@ import "aos/dist/aos.css";
             updateDots();
 
             const startAutoplay = () => {
-                if (prefersReducedMotion || autoplayId) return;
+                if (autoplayId) return;
                 autoplayId = setInterval(() => scrollToIndex(activeIndex + 1), 4000);
             };
 

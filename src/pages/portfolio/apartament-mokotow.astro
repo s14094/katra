@@ -5,6 +5,7 @@ import mokotow1 from "../../assets/mokotow/1.jpeg";
 import mokotow2 from "../../assets/mokotow/2.jpeg";
 import mokotow3 from "../../assets/mokotow/3.jpeg";
 import mokotow4 from "../../assets/mokotow/4.jpeg";
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Apartament Mokotow — Cyan Chroma">
@@ -32,8 +33,8 @@ import mokotow4 from "../../assets/mokotow/4.jpeg";
                 </div>
             </dl>
             <div class="hero-actions">
-                <a class="button" href="/contact">Zapytaj o projekt</a>
-                <a class="button secondary" href="/portfolio">Powrot do portfolio</a>
+                <a class="button" href={`${base}contact/`}>Zapytaj o projekt</a>
+                <a class="button secondary" href={`${base}portfolio/`}>Powrot do portfolio</a>
             </div>
         </div>
         <div class="hero-media">
