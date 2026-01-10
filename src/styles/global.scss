@@ -320,6 +320,10 @@ p {
   margin-bottom: 24px;
 }
 
+.stats + .hero-actions {
+  margin-top: 24px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -425,6 +429,12 @@ p {
   color: inherit;
   cursor: zoom-in;
   text-align: left;
+}
+
+.media-button:hover,
+.media-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
 }
 
 .media-placeholder.small {
