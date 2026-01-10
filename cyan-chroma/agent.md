@@ -40,7 +40,7 @@ JS
 
 ------------------------------------------------------------------------
 
-## 🗂 Struktura projektu (docelowa)
+## 🗂 Struktura projektu
 
 src/
   assets/
@@ -56,6 +56,8 @@ src/
     offer.astro
     portfolio.astro
     contact.astro
+  styles/
+    global.scss
 
 ------------------------------------------------------------------------
 
