@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+	<header>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">O mnie</a>
+			<a href="/portfolio">Portfolio</a>
+			<a href="/offer">Oferta</a>
+			<a href="/contact">Kontakt</a>
+		</nav>
+	</header>
+
+	<main>
+		<slot />
+	</main>
+
+	<footer>
+		© Projektantka wnętrz
+	</footer>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
