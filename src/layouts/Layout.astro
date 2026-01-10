@@ -16,6 +16,10 @@ const {title = "xd"} = Astro.props;
     <title>{title}</title>
 </head>
 <body>
+<script>
+    import AOS from "aos";
+    AOS.init();
+</script>
 <header class="site-header">
     <div class="header-inner">
         <a class="site-brand" href={`${base}`} aria-label="strona glowna">
