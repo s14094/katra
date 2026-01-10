@@ -460,6 +460,19 @@ p {
   align-content: start;
 }
 
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  color: inherit;
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
 .card h3 {
   margin: 0;
 }
@@ -603,7 +616,7 @@ textarea {
 .social-link svg {
   width: 16px;
   height: 16px;
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 .footer-meta {

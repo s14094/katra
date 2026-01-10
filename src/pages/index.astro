@@ -9,7 +9,7 @@ import Image from "astro/components/Image.astro";
 import "aos/dist/aos.css";
 ---
 
-<Layout title="Studio e? Cyan Chroma">
+<Layout title="K.RADOMSKA">
     <section class="hero-carousel full-bleed" aria-label="Karuzela realizacji">
         <div class="carousel-viewport">
             <div class="carousel-track" data-carousel>
@@ -217,7 +217,7 @@ import "aos/dist/aos.css";
             const prevButton = document.querySelector("[data-carousel-prev]");
             const nextButton = document.querySelector("[data-carousel-next]");
             let activeIndex = 0;
-            let autoplayId: any = null;
+            let autoplayId = null;
 
             const updateDots = () => {
                 dots.forEach((dot, index) => {
@@ -227,7 +227,7 @@ import "aos/dist/aos.css";
                 });
             };
 
-            const scrollToIndex = (nextIndex: any) => {
+            const scrollToIndex = (nextIndex) => {
                 if (!slides.length) return;
                 activeIndex = (nextIndex + slides.length) % slides.length;
                 const target = slides[activeIndex];
