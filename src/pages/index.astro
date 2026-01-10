@@ -1,10 +1,72 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import wizualizacjaImage from "../assets/wizualizacja.png";
+import carousel1 from "../assets/carousel1.jpeg";
+import carousel2 from "../assets/carousel2.jpeg";
+import carousel3 from "../assets/carousel3.jpeg";
+import carousel4 from "../assets/carousel4.jpeg";
 import Image from "astro/components/Image.astro";
 ---
 
-<Layout title="Studio wnętrz — Cyan Chroma">
+<Layout title="Studio e? Cyan Chroma">
+    <section class="hero-carousel full-bleed" aria-label="Karuzela realizacji">
+        <div class="carousel-viewport">
+            <div class="carousel-track" data-carousel>
+                <figure class="carousel-slide">
+                    <Image
+                            src={carousel1}
+                            width={carousel1.width}
+                            height={carousel1.height}
+                            alt="Salon w cieplych tonach z duzym oknem"
+                            loading="eager"
+                            fetchpriority="high"
+                    />
+                </figure>
+                <figure class="carousel-slide">
+                    <Image
+                            src={carousel2}
+                            width={carousel2.width}
+                            height={carousel2.height}
+                            alt="Jasna kuchnia z naturalnymi materialami"
+                            loading="eager"
+                            fetchpriority="high"
+                    />
+                </figure>
+                <figure class="carousel-slide">
+                    <Image
+                            src={carousel3}
+                            width={carousel3.width}
+                            height={carousel3.height}
+                            alt="Sypialnia z teksturami i miekkim swiatlem"
+                            loading="eager"
+                            fetchpriority="high"
+                    />
+                </figure>
+                <figure class="carousel-slide">
+                    <Image
+                            src={carousel4}
+                            width={carousel4.width}
+                            height={carousel4.height}
+                            alt="Strefa dzienna z kamieniem i drewnem"
+                            loading="eager"
+                            fetchpriority="high"
+                    />
+                </figure>
+            </div>
+            <button class="carousel-arrow prev" type="button" data-carousel-prev aria-label="Poprzednie zdjecie">
+                <span aria-hidden="true">&lt;</span>
+            </button>
+            <button class="carousel-arrow next" type="button" data-carousel-next aria-label="Nastepne zdjecie">
+                <span aria-hidden="true">&gt;</span>
+            </button>
+        </div>
+        <div class="carousel-dots" role="tablist" aria-label="Wybierz slajd">
+            <button class="carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Slajd 1" aria-current="true"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Slajd 2"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Slajd 3"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Slajd 4"></button>
+        </div>
+    </section>
     <section class="hero">
         <div class="hero-content">
             <p class="eyebrow">Studio projektowania wnętrz</p>
@@ -36,12 +98,12 @@ import Image from "astro/components/Image.astro";
         <div class="hero-media">
             <div class="media-frame">
                 <Image
-                    src={wizualizacjaImage}
-                    width={wizualizacjaImage.width}
-                    height={wizualizacjaImage.height}
-                    alt="Wizualizacja wnetrza"
-                    loading="eager"
-                    fetchpriority="high"
+                        src={wizualizacjaImage}
+                        width={wizualizacjaImage.width}
+                        height={wizualizacjaImage.height}
+                        alt="Wizualizacja wnetrza"
+                        loading="eager"
+                        fetchpriority="high"
                 />
             </div>
         </div>
@@ -145,4 +207,77 @@ import Image from "astro/components/Image.astro";
             </article>
         </div>
     </section>
+
+    <script>
+        const carouselTrack = document.querySelector("[data-carousel]");
+        if (carouselTrack) {
+            const slides = Array.from(carouselTrack.querySelectorAll(".carousel-slide"));
+            const dots = Array.from(document.querySelectorAll("[data-carousel-dot]"));
+            const prevButton = document.querySelector("[data-carousel-prev]");
+            const nextButton = document.querySelector("[data-carousel-next]");
+            let activeIndex = 0;
+            let autoplayId: any = null;
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            const updateDots = () => {
+                dots.forEach((dot, index) => {
+                    const isActive = index === activeIndex;
+                    dot.classList.toggle("is-active", isActive);
+                    dot.setAttribute("aria-current", isActive ? "true" : "false");
+                });
+            };
+
+            const scrollToIndex = (nextIndex: any) => {
+                if (!slides.length) return;
+                activeIndex = (nextIndex + slides.length) % slides.length;
+                const target = slides[activeIndex];
+                carouselTrack.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
+                updateDots();
+            };
+
+            prevButton?.addEventListener("click", () => {
+                stopAutoplay();
+                scrollToIndex(activeIndex - 1);
+            });
+            nextButton?.addEventListener("click", () => {
+                stopAutoplay();
+                scrollToIndex(activeIndex + 1);
+            });
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", () => {
+                    stopAutoplay();
+                    scrollToIndex(index);
+                });
+            });
+
+            let ticking = false;
+            carouselTrack.addEventListener("scroll", () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    ticking = false;
+                    const nextIndex = Math.round(carouselTrack.scrollLeft / carouselTrack.clientWidth);
+                    if (nextIndex !== activeIndex) {
+                        activeIndex = Math.max(0, Math.min(nextIndex, slides.length - 1));
+                        updateDots();
+                    }
+                });
+            });
+
+            updateDots();
+
+            const startAutoplay = () => {
+                if (prefersReducedMotion || autoplayId) return;
+                autoplayId = setInterval(() => scrollToIndex(activeIndex + 1), 4000);
+            };
+
+            const stopAutoplay = () => {
+                if (!autoplayId) return;
+                clearInterval(autoplayId);
+                autoplayId = null;
+            };
+
+            startAutoplay();
+        }
+    </script>
 </Layout>

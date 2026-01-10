@@ -89,6 +89,101 @@ footer {
   box-shadow: 0 12px 28px rgba(29, 21, 16, 0.08);
 }
 
+.full-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-carousel {
+  margin-top: calc(-1 * var(--space-1));
+}
+
+.carousel-viewport {
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.carousel-arrow.prev {
+  left: clamp(12px, 3vw, 28px);
+}
+
+.carousel-arrow.next {
+  right: clamp(12px, 3vw, 28px);
+}
+
+.carousel-arrow:hover,
+.carousel-arrow:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px var(--gutter) 0;
+  margin: 0 auto;
+  max-width: var(--page-max);
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.carousel-dot.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.08);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: clamp(340px, 70vh, 760px);
+  object-fit: cover;
+  display: block;
+}
+
 .header-inner {
   margin: 0 auto;
   max-width: var(--page-max);
