@@ -1,5 +1,6 @@
 ---
 import "../styles/global.scss";
+import logoImage from "../assets/logo.jpeg";
 const base = import.meta.env.BASE_URL;
 const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
 ---
@@ -16,6 +17,15 @@ const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
 <body>
 <header class="site-header">
     <div class="header-inner">
+        <a class="site-brand" href={`${base}`} aria-label="Cyan Chroma - strona glowna">
+            <img
+                src={logoImage.src}
+                width={logoImage.width}
+                height={logoImage.height}
+                alt="Cyan Chroma logo"
+                decoding="async"
+            />
+        </a>
         <nav>
             <a href={`${base}`}>Home</a>
             <a href={`${base}about/`}>O mnie</a>
@@ -33,13 +43,13 @@ const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
 <footer>
     <div class="footer-grid">
         <div>
-            <p class="footer-title">Cyan Chroma</p>
+            <p class="footer-title">K.Radomska</p>
             <p>Studio projektowania wn?trz skupione na ?wietle, fakturze i spokoju.</p>
         </div>
         <div>
             <p class="footer-heading">Kontakt</p>
-            <p>hello@cyan-chroma.com</p>
-            <p>+48 600 000 000</p>
+            <p><a href="mailto:hello@cyan-chroma.com">hello@cyan-chroma.com</a></p>
+            <p><a href="tel:+48600000000">+48 600 000 000</a></p>
         </div>
         <div>
             <p class="footer-heading">Oferta</p>
@@ -58,7 +68,8 @@ const {title = "Cyan Chroma ? Studio wn?trz"} = Astro.props;
             </ul>
         </div>
     </div>
-    <p class="footer-meta">? 2026 Cyan Chroma. Wszystkie prawa zastrze?one.</p>
+    <p class="footer-meta">
+        Copyright © 2026 | Wszystkie prawa zastrzeżone.</p>
 </footer>
 </body>
 </html>

@@ -9,7 +9,7 @@
   --color-accent: #b05a3d;
   --color-accent-strong: #94412c;
   --color-surface: #f6efe8;
-  --color-surface-2: #fff8f2;
+  --color-surface-2: #ffffff;
   --color-border: #e2d3c6;
   --color-line: rgba(35, 26, 22, 0.18);
   --radius-sm: 8px;
@@ -96,6 +96,22 @@ footer {
   padding-right: var(--gutter);
   padding-top: 28px;
   padding-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.site-brand img {
+  height: 44px;
+  width: auto;
 }
 
 nav {
