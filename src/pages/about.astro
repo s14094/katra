@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import pracowniaImage from "../assets/pracownia.png";
 ---
 
 <Layout title="O mnie — Cyan Chroma">
@@ -14,8 +15,14 @@ import Layout from "../layouts/Layout.astro";
             </p>
         </div>
         <div class="hero-media">
-            <div class="media-placeholder">
-                <p>Portret / zdjęcie pracowni</p>
+            <div class="media-frame">
+                <img
+                    src={pracowniaImage.src}
+                    width={pracowniaImage.width}
+                    height={pracowniaImage.height}
+                    alt="Pracownia projektantki wnetrz"
+                    decoding="async"
+                />
             </div>
         </div>
     </section>
