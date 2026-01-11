@@ -5,12 +5,13 @@ import mokotow1 from "../../assets/mokotow/1.jpeg";
 import mokotow2 from "../../assets/mokotow/2.jpeg";
 import mokotow3 from "../../assets/mokotow/3.jpeg";
 import mokotow4 from "../../assets/mokotow/4.jpeg";
+import "aos/dist/aos.css";
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Apartament Mokotow — Cyan Chroma">
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-left" data-aos-duration="1500">
             <p class="eyebrow">Portfolio</p>
             <h1>Apartament Mokotow</h1>
             <p class="lead">
@@ -37,7 +38,7 @@ const base = import.meta.env.BASE_URL;
                 <a class="button secondary" href={`${base}portfolio/`}>Powrot do portfolio</a>
             </div>
         </div>
-        <div class="hero-media">
+        <div class="hero-media" data-aos="zoom-in" data-aos-duration="1500">
             <button class="media-frame media-button" type="button" data-hero-lightbox aria-label="Powieksz zdjecie apartamentu">
                 <Image
                     src={mokotow1}
