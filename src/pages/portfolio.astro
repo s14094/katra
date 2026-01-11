@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import kolazImage from "../assets/kolaz.png";
 import mokotow1 from "../assets/mokotow/1.jpeg";
 import Image from "astro/components/Image.astro";
+import "aos/dist/aos.css";
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Portfolio — K.RADOMSKA">
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-left" data-aos-duration="1500">
             <p class="eyebrow">Portfolio</p>
             <h1>Realizacje pełne światła, równowagi i funkcji.</h1>
             <p class="lead">
@@ -17,20 +18,20 @@ const base = import.meta.env.BASE_URL;
             </p>
         </div>
         <div class="hero-media">
-            <div class="media-frame">
+            <div class="media-frame" data-aos="zoom-in" data-aos-duration="1500">
                 <Image
-                    src={kolazImage}
-                    width={kolazImage.width}
-                    height={kolazImage.height}
-                    alt="Kolaz projektow wnetrz"
-                    loading="eager"
-                    fetchpriority="high"
+                        src={kolazImage}
+                        width={kolazImage.width}
+                        height={kolazImage.height}
+                        alt="Kolaz projektow wnetrz"
+                        loading="eager"
+                        fetchpriority="high"
                 />
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
         <div class="section-header">
             <div>
                 <p class="eyebrow">Wybrane projekty</p>
@@ -39,7 +40,9 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <div class="section-grid portfolio-grid">
-            <a class="portfolio-card" href={`${base}portfolio/apartament-mokotow/`} style={`--card-bg: url('${mokotow1.src}')`}>
+            <a class="portfolio-card" href={`${base}portfolio/apartament-mokotow/`}
+               data-aos="fade-right"
+               style={`--card-bg: url('${mokotow1.src}')`}>
                 <div class="portfolio-card__content">
                     <h3>Apartament Mokotow</h3>
                     <p>130 m2, miekka paleta bezow, otwarta strefa dzienna.</p>
@@ -50,7 +53,7 @@ const base = import.meta.env.BASE_URL;
                     </ul>
                 </div>
             </a>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-aos="fade-left">
                 <div class="portfolio-card__content">
                     <h3>Dom pod lasem</h3>
                     <p>200 m2, naturalne drewno i tynki gliniane.</p>
@@ -61,7 +64,7 @@ const base = import.meta.env.BASE_URL;
                     </ul>
                 </div>
             </article>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-aos="fade-right">
                 <div class="portfolio-card__content">
                     <h3>Studio beauty</h3>
                     <p>Kontrastowa recepcja, strefy pracy i relaksu.</p>
@@ -72,7 +75,7 @@ const base = import.meta.env.BASE_URL;
                     </ul>
                 </div>
             </article>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-aos="fade-left">
                 <div class="portfolio-card__content">
                     <h3>Loft Praga</h3>
                     <p>Surowe materialy przelamane miekkimi tekstyliami.</p>
@@ -83,7 +86,7 @@ const base = import.meta.env.BASE_URL;
                     </ul>
                 </div>
             </article>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-aos="fade-right">
                 <div class="portfolio-card__content">
                     <h3>Biuro kreatywne</h3>
                     <p>Strefy skupienia, otwarte miejsca spotkan.</p>
@@ -94,7 +97,7 @@ const base = import.meta.env.BASE_URL;
                     </ul>
                 </div>
             </article>
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-aos="fade-left">
                 <div class="portfolio-card__content">
                     <h3>Kamienica Srodmiescie</h3>
                     <p>Odtworzone detale sztukatorskie i nowa funkcja.</p>

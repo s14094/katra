@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import pracowniaImage from "../assets/pracownia.png";
 import testImage from "../assets/carousel4.jpeg";
 import Image from "astro/components/Image.astro";
+import "aos/dist/aos.css";
 ---
 
 <Layout title="Kontakt — K.RADOMSKA">
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-left" data-aos-duration="1500">
             <p class="eyebrow">Kontakt</p>
             <h1>Porozmawiajmy o Twojej przestrzeni.</h1>
             <p class="lead">
@@ -21,14 +21,14 @@ import Image from "astro/components/Image.astro";
             </div>
         </div>
         <div class="hero-media">
-            <div class="media-frame">
+            <div class="media-frame" data-aos="zoom-in" data-aos-duration="1500">
                 <Image
-                    src={testImage}
-                    width={testImage.width}
-                    height={testImage.height}
-                    alt="Pracownia projektantki wnetrz"
-                    loading="eager"
-                    fetchpriority="high"
+                        src={testImage}
+                        width={testImage.width}
+                        height={testImage.height}
+                        alt="Pracownia projektantki wnetrz"
+                        loading="eager"
+                        fetchpriority="high"
                 />
             </div>
         </div>
@@ -55,17 +55,12 @@ import Image from "astro/components/Image.astro";
                     <span>Rodzaj projektu</span>
                     <input type="text" name="type" placeholder="Mieszkanie 80 m²"/>
                 </label>
-                <label class="form-field">
-                    <span>Planowany termin</span>
-                    <input type="text" name="timeline" placeholder="Start w marcu"/>
-                </label>
                 <label class="form-field full">
                     <span>Opisz krótko potrzeby</span>
                     <textarea name="message" rows="5" placeholder="Najważniejsze wyzwania i oczekiwania"></textarea>
                 </label>
             </div>
-            <button class="button" type="submit">Wyślij zapytanie</button>
-            <p class="form-note">Docelowo formularz może zostać podłączony do Formspree.</p>
+            <button class="button" type="submit" data-aos="zoom-in" data-aos-duration="1500">Wyślij zapytanie</button>
         </form>
     </section>
 </Layout>
