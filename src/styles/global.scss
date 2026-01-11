@@ -51,6 +51,10 @@ body {
   letter-spacing: 0.01em;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 img,
 svg {
   max-width: 100%;
@@ -103,6 +107,7 @@ footer {
 
 .carousel-viewport {
   position: relative;
+  overflow: hidden;
 }
 
 .carousel-track {
@@ -676,6 +681,14 @@ p {
 
   .portfolio-card {
     //aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 720px) {
+  .full-bleed {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

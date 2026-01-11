@@ -18,7 +18,9 @@ const {title = "xd"} = Astro.props;
 <body>
 <script>
     import AOS from "aos";
-    AOS.init();
+    AOS.init({
+        // disable: 'mobile',
+    });
 </script>
 <header class="site-header">
     <div class="header-inner">
