@@ -18,6 +18,7 @@ const {title = "xd"} = Astro.props;
 <body>
 <script>
     import AOS from "aos";
+
     AOS.init({
         // disable: 'mobile',
     });
@@ -26,12 +27,12 @@ const {title = "xd"} = Astro.props;
     <div class="header-inner">
         <a class="site-brand" href={`${base}`} aria-label="strona glowna">
             <Image
-                src={logoImage}
-                width={logoImage.width}
-                height={logoImage.height}
-                alt="logo"
-                loading="eager"
-                fetchpriority="high"
+                    src={logoImage}
+                    width={logoImage.width}
+                    height={logoImage.height}
+                    alt="logo"
+                    loading="eager"
+                    fetchpriority="high"
             />
         </a>
         <nav>
@@ -56,7 +57,37 @@ const {title = "xd"} = Astro.props;
         </div>
         <div>
             <p class="footer-heading">Kontakt</p>
-            <p><a href="mailto:hello@cyan-chroma.com">k.radomska@33.com</a></p>
+            <p>
+                <span class="copy-inline">
+                    <a href="mailto:hello@cyan-chroma.com">k.radomska@33.com</a>
+                    <button
+                            class="copy-button"
+                            type="button"
+                            data-copy="k.radomska@33.com"
+                            aria-label="Skopiuj adres email"
+                            title="Skopiuj adres email"
+                    >
+                        <svg x="0px" y="0px" viewBox="0 0 115.77 122.88"
+                             xml:space="preserve"><style type="text/css"></style>
+                                <g>
+                                    <path class="st0" fill="currentColor" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02
+                                    v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02
+                                    c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1
+                                    c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7
+                                    h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z
+                                    M79.04,21.69v-7.73v-0.02h0.02
+                                    c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01
+                                    c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65
+                                    v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z
+                                    M105.18,108.92V35.65v-0.02
+                                    h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01
+                                    c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02
+                                    v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/>
+                                </g>
+                            </svg>
+                    </button>
+                </span>
+            </p>
             <p><a href="tel:+48600000000">+48 333 333 333</a></p>
         </div>
         <div>
@@ -74,8 +105,8 @@ const {title = "xd"} = Astro.props;
                     <a class="social-link" href="https://www.instagram.com/k.radomska_interiors/">
                         <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
                             <path
-                                d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6zm0 2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6zm5.1-.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z"
-                                fill="currentColor"
+                                    d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6zm0 2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6zm5.1-.9a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z"
+                                    fill="currentColor"
                             />
                         </svg>
                         Instagram
@@ -87,5 +118,30 @@ const {title = "xd"} = Astro.props;
     <p class="footer-meta">
         Copyright © 2026 | Wszystkie prawa zastrzeżone.</p>
 </footer>
+<script>
+    document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-copy]");
+        if (!button) {
+            return;
+        }
+        const value = button.getAttribute("data-copy");
+        if (!value) {
+            return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(value);
+            return;
+        }
+        const field = document.createElement("textarea");
+        field.value = value;
+        field.setAttribute("readonly", "");
+        field.style.position = "absolute";
+        field.style.left = "-9999px";
+        document.body.appendChild(field);
+        field.select();
+        document.execCommand("copy");
+        document.body.removeChild(field);
+    });
+</script>
 </body>
 </html>

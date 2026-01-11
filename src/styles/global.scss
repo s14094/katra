@@ -755,6 +755,35 @@ p {
   margin-bottom: 8px;
 }
 
+.copy-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.copy-button svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent-strong);
+}
+
+.copy-button:hover,
+.copy-button:focus-visible {
+  color: var(--color-accent-strong);
+}
+
 .form {
   margin-top: 24px;
 }
@@ -869,6 +898,10 @@ textarea {
 
   .section-alt {
     padding: 24px;
+  }
+
+  .copy-button {
+    display: none;
   }
 }
 

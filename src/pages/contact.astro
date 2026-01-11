@@ -15,8 +15,39 @@ import "aos/dist/aos.css";
                 wstępnym harmonogramie i sugerowanym zakresie współpracy.
             </p>
             <div class="contact-details">
-                <p><strong>Email</strong> hello@cyan-chroma.com</p>
-                <p><strong>Telefon</strong> +48 600 000 000</p>
+                <p>
+                    <strong>Email</strong>
+                    <span class="copy-inline">
+                        <a href="mailto:k.radomska@33.com">k.radomska@33.com</a>
+                        <button
+                                class="copy-button"
+                                type="button"
+                                data-copy="k.radomska@33.com"
+                                aria-label="Skopiuj adres email"
+                                title="Skopiuj adres email"
+                        >
+                            <svg x="0px" y="0px" viewBox="0 0 115.77 122.88"
+                                 xml:space="preserve"><style type="text/css"></style>
+                                <g>
+                                    <path class="st0" fill="currentColor" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02
+                                    v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02
+                                    c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1
+                                    c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7
+                                    h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z
+                                    M79.04,21.69v-7.73v-0.02h0.02
+                                    c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01
+                                    c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65
+                                    v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z
+                                    M105.18,108.92V35.65v-0.02
+                                    h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01
+                                    c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02
+                                    v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/>
+                                </g>
+                            </svg>
+                        </button>
+                    </span>
+                </p>
+                <p><strong>Telefon</strong> <a href="tel:+48600000000">+48 333 333 333</a></p>
                 <p><strong>Lokalizacja</strong> Warszawa / praca zdalna</p>
             </div>
         </div>
@@ -53,7 +84,7 @@ import "aos/dist/aos.css";
                 </label>
                 <label class="form-field">
                     <span>Rodzaj projektu</span>
-                    <input type="text" name="type" />
+                    <input type="text" name="type"/>
                     <small class="hint">np. „Mieszkanie 80 m²”</small>
                 </label>
                 <label class="form-field full">
@@ -64,82 +95,81 @@ import "aos/dist/aos.css";
             <button class="button" type="submit" data-aos="zoom-in" data-aos-duration="1500">Wyślij zapytanie</button>
         </form>
 
-        
 
-<script>
-    const input = document.querySelector('textarea[name="message"]');
-    if (input) {
-        const text = [
-            'Dzien dobry,',
-            'poszukuje architekta wnetrz do zaprojektowania mieszkania o powierzchni 78 m2 w Warszawie.',
-            'Mieszkanie jest w stanie deweloperskim.',
-        ].join('\n');
-        let i = 0;
-        let typingId = null;
-        let started = false;
+        <script>
+            const input = document.querySelector('textarea[name="message"]');
+            if (input) {
+                const text = [
+                    'Dzien dobry,',
+                    'poszukuje architekta wnetrz do zaprojektowania mieszkania o powierzchni 78 m2 w Warszawie.',
+                    'Mieszkanie jest w stanie deweloperskim.',
+                ].join('\n');
+                let i = 0;
+                let typingId = null;
+                let started = false;
 
-        const stopTyping = () => {
-            if (typingId) {
-                clearTimeout(typingId);
-                typingId = null;
-            }
-        };
+                const stopTyping = () => {
+                    if (typingId) {
+                        clearTimeout(typingId);
+                        typingId = null;
+                    }
+                };
 
-        function typePlaceholder() {
-            if (document.activeElement === input) {
-                stopTyping();
-                return;
-            }
-            if (i <= text.length) {
-                input.placeholder = text.slice(0, i++);
-                typingId = window.setTimeout(typePlaceholder, 50);
-            }
-        }
+                function typePlaceholder() {
+                    if (document.activeElement === input) {
+                        stopTyping();
+                        return;
+                    }
+                    if (i <= text.length) {
+                        input.placeholder = text.slice(0, i++);
+                        typingId = window.setTimeout(typePlaceholder, 50);
+                    }
+                }
 
-        function startTyping() {
-            if (started || window.innerWidth <= 768) {
-                return;
-            }
-            started = true;
-            typePlaceholder();
-        }
+                function startTyping() {
+                    if (started || window.innerWidth <= 768) {
+                        return;
+                    }
+                    started = true;
+                    typePlaceholder();
+                }
 
-        function startWhenVisible() {
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        if (entries.some((entry) => entry.isIntersecting)) {
-                            observer.disconnect();
+                function startWhenVisible() {
+                    if ("IntersectionObserver" in window) {
+                        const observer = new IntersectionObserver(
+                            (entries) => {
+                                if (entries.some((entry) => entry.isIntersecting)) {
+                                    observer.disconnect();
+                                    startTyping();
+                                }
+                            },
+                            {threshold: 0.2}
+                        );
+                        observer.observe(input);
+                        return;
+                    }
+
+                    const check = () => {
+                        const rect = input.getBoundingClientRect();
+                        if (rect.top < window.innerHeight && rect.bottom > 0) {
+                            window.removeEventListener("scroll", check);
+                            window.removeEventListener("resize", check);
                             startTyping();
                         }
-                    },
-                    { threshold: 0.2 }
-                );
-                observer.observe(input);
-                return;
-            }
-
-            const check = () => {
-                const rect = input.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    window.removeEventListener("scroll", check);
-                    window.removeEventListener("resize", check);
-                    startTyping();
+                    };
+                    window.addEventListener("scroll", check, {passive: true});
+                    window.addEventListener("resize", check);
+                    check();
                 }
-            };
-            window.addEventListener("scroll", check, { passive: true });
-            window.addEventListener("resize", check);
-            check();
-        }
 
-        startWhenVisible();
+                startWhenVisible();
 
-        input.addEventListener('focus', () => {
-            input.placeholder = '';
-            stopTyping();
-        });
-    }
-</script>
+                input.addEventListener('focus', () => {
+                    input.placeholder = '';
+                    stopTyping();
+                });
+            }
+        </script>
 
 
     </section>
