@@ -45,22 +45,102 @@ import "aos/dist/aos.css";
             <div class="form-grid">
                 <label class="form-field">
                     <span>Imię i nazwisko</span>
-                    <input type="text" name="name" placeholder="Jan Kowalski" required/>
+                    <input type="text" name="name" required/>
                 </label>
                 <label class="form-field">
                     <span>Email</span>
-                    <input type="email" name="email" placeholder="jan@email.com" required/>
+                    <input type="email" name="email" required/>
                 </label>
                 <label class="form-field">
                     <span>Rodzaj projektu</span>
-                    <input type="text" name="type" placeholder="Mieszkanie 80 m²"/>
+                    <input type="text" name="type" />
+                    <small class="hint">np. „Mieszkanie 80 m²”</small>
                 </label>
                 <label class="form-field full">
                     <span>Opisz krótko potrzeby</span>
-                    <textarea name="message" rows="5" placeholder="Najważniejsze wyzwania i oczekiwania"></textarea>
+                    <textarea name="message" rows="5"></textarea>
                 </label>
             </div>
             <button class="button" type="submit" data-aos="zoom-in" data-aos-duration="1500">Wyślij zapytanie</button>
         </form>
+
+        
+
+<script>
+    const input = document.querySelector('textarea[name="message"]');
+    if (input) {
+        const text = [
+            'Dzien dobry,',
+            'poszukuje architekta wnetrz do zaprojektowania mieszkania o powierzchni 78 m2 w Warszawie.',
+            'Mieszkanie jest w stanie deweloperskim.',
+        ].join('\n');
+        let i = 0;
+        let typingId = null;
+        let started = false;
+
+        const stopTyping = () => {
+            if (typingId) {
+                clearTimeout(typingId);
+                typingId = null;
+            }
+        };
+
+        function typePlaceholder() {
+            if (document.activeElement === input) {
+                stopTyping();
+                return;
+            }
+            if (i <= text.length) {
+                input.placeholder = text.slice(0, i++);
+                typingId = window.setTimeout(typePlaceholder, 50);
+            }
+        }
+
+        function startTyping() {
+            if (started || window.innerWidth <= 768) {
+                return;
+            }
+            started = true;
+            typePlaceholder();
+        }
+
+        function startWhenVisible() {
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        if (entries.some((entry) => entry.isIntersecting)) {
+                            observer.disconnect();
+                            startTyping();
+                        }
+                    },
+                    { threshold: 0.2 }
+                );
+                observer.observe(input);
+                return;
+            }
+
+            const check = () => {
+                const rect = input.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    window.removeEventListener("scroll", check);
+                    window.removeEventListener("resize", check);
+                    startTyping();
+                }
+            };
+            window.addEventListener("scroll", check, { passive: true });
+            window.addEventListener("resize", check);
+            check();
+        }
+
+        startWhenVisible();
+
+        input.addEventListener('focus', () => {
+            input.placeholder = '';
+            stopTyping();
+        });
+    }
+</script>
+
+
     </section>
 </Layout>

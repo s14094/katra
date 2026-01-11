@@ -346,6 +346,7 @@ p {
   border: 1px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   box-shadow: 0 12px 24px rgba(90, 50, 35, 0.18);
+  cursor: pointer;
 }
 
 .button:hover,
@@ -769,6 +770,7 @@ p {
   display: grid;
   gap: 8px;
   font-size: 0.9rem;
+  position: relative;
 }
 
 .form-field.full {
@@ -782,6 +784,12 @@ textarea {
   border: 1px solid var(--color-border);
   background: #fff;
   font: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 0;
 }
 
 textarea {
@@ -862,4 +870,22 @@ textarea {
   .section-alt {
     padding: 24px;
   }
+}
+
+
+.hint {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--color-muted);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form-field:focus-within .hint {
+  opacity: 1;
 }
