@@ -753,6 +753,19 @@ p {
 
 .contact-details p {
   margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 18px;
+}
+
+.contact-details strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.contact-value {
+  justify-self: start;
 }
 
 .copy-inline {
@@ -862,7 +875,7 @@ textarea {
 .social-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .social-link svg {
@@ -902,6 +915,11 @@ textarea {
 
   .copy-button {
     display: none;
+  }
+
+  .contact-details p {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
   }
 }
 
